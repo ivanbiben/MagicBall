@@ -10,6 +10,10 @@
 		D6673A0B27A85C6000CBE5F1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673A0A27A85C6000CBE5F1 /* SettingsViewController.swift */; };
 		D6673A1027A85CEF00CBE5F1 /* HardCodedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673A0F27A85CEF00CBE5F1 /* HardCodedModel.swift */; };
 		D6673A1227A85D0600CBE5F1 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673A1127A85D0600CBE5F1 /* MockModel.swift */; };
+		D6673A1627A872AA00CBE5F1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673A1527A872AA00CBE5F1 /* NetworkManager.swift */; };
+		D6673A1827A872BC00CBE5F1 /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673A1727A872BC00CBE5F1 /* Answers.swift */; };
+		D6673A1A27A8733300CBE5F1 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673A1927A8733300CBE5F1 /* Result.swift */; };
+		D6673A1C27A874D400CBE5F1 /* MagicBallNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673A1B27A874D400CBE5F1 /* MagicBallNetworking.swift */; };
 		D6E963FD27A852E200364406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E963FC27A852E200364406 /* AppDelegate.swift */; };
 		D6E963FF27A852E200364406 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E963FE27A852E200364406 /* SceneDelegate.swift */; };
 		D6E9640127A852E200364406 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9640027A852E200364406 /* MainViewController.swift */; };
@@ -22,6 +26,10 @@
 		D6673A0A27A85C6000CBE5F1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D6673A0F27A85CEF00CBE5F1 /* HardCodedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardCodedModel.swift; sourceTree = "<group>"; };
 		D6673A1127A85D0600CBE5F1 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
+		D6673A1527A872AA00CBE5F1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D6673A1727A872BC00CBE5F1 /* Answers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
+		D6673A1927A8733300CBE5F1 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		D6673A1B27A874D400CBE5F1 /* MagicBallNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicBallNetworking.swift; sourceTree = "<group>"; };
 		D6E963F927A852E200364406 /* MagicBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6E963FC27A852E200364406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6E963FE27A852E200364406 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +54,9 @@
 		D6673A0C27A85C7B00CBE5F1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D6673A1527A872AA00CBE5F1 /* NetworkManager.swift */,
+				D6673A1927A8733300CBE5F1 /* Result.swift */,
+				D6673A1B27A874D400CBE5F1 /* MagicBallNetworking.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -55,6 +66,7 @@
 			children = (
 				D6673A0F27A85CEF00CBE5F1 /* HardCodedModel.swift */,
 				D6673A1127A85D0600CBE5F1 /* MockModel.swift */,
+				D6673A1727A872BC00CBE5F1 /* Answers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,11 +183,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6673A1A27A8733300CBE5F1 /* Result.swift in Sources */,
 				D6E9640127A852E200364406 /* MainViewController.swift in Sources */,
 				D6673A1027A85CEF00CBE5F1 /* HardCodedModel.swift in Sources */,
 				D6E963FD27A852E200364406 /* AppDelegate.swift in Sources */,
+				D6673A1827A872BC00CBE5F1 /* Answers.swift in Sources */,
+				D6673A1627A872AA00CBE5F1 /* NetworkManager.swift in Sources */,
 				D6673A1227A85D0600CBE5F1 /* MockModel.swift in Sources */,
 				D6E963FF27A852E200364406 /* SceneDelegate.swift in Sources */,
+				D6673A1C27A874D400CBE5F1 /* MagicBallNetworking.swift in Sources */,
 				D6673A0B27A85C6000CBE5F1 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

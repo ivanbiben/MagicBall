@@ -93,6 +93,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Shake">
                                     <color key="baseBackgroundColor" red="0.35254684689999999" green="0.45820085420000001" blue="0.78223001960000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="shakeButton:" destination="BED-vE-QiD" eventType="touchUpInside" id="CYu-LG-s50"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="860-aA-dwI"/>
