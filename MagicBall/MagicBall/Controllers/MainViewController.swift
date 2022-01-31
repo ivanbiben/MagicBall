@@ -8,7 +8,12 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
 
+    @IBOutlet weak var answerLabel: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -19,12 +24,29 @@ class MainViewController: UIViewController {
         MagicBallNetworking.sharedMockData.fetchAnswers(complition: { res in
             switch res{
             case let .succ(data):
-                print(data.magic?.answer ?? "")
+                DispatchQueue.main.async {
+                    HardCodedModel.sharedHardData.hardCodedAnswers.append(data.magic?.answer ?? "")
+//                    print(data.magic?.answer ?? "")
+//                    print("_________")
+                }
                 
             case let .error(error):
                 print(error)
             }
         })
+        
+        generateAnswer()
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        guard motion == .motionShake else { return }
+        generateAnswer()
+    }
+    
+    func generateAnswer() {
+        HardCodedModel.sharedHardData.searchdDuplicate()
+        let randomIndex = Int.random(in: 0..<HardCodedModel.sharedHardData.hardCodedAnswers.count)
+        answerLabel.text = HardCodedModel.sharedHardData.hardCodedAnswers[randomIndex]
     }
     
     
