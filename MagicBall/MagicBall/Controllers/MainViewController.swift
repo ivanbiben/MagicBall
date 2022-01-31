@@ -26,8 +26,6 @@ class MainViewController: UIViewController {
             case let .succ(data):
                 DispatchQueue.main.async {
                     HardCodedModel.sharedHardData.hardCodedAnswers.append(data.magic?.answer ?? "")
-//                    print(data.magic?.answer ?? "")
-//                    print("_________")
                 }
                 
             case let .error(error):

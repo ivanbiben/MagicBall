@@ -99,9 +99,9 @@
 		D6E963FB27A852E200364406 /* MagicBall */ = {
 			isa = PBXGroup;
 			children = (
-				D6673A0C27A85C7B00CBE5F1 /* Networking */,
 				D6E963FC27A852E200364406 /* AppDelegate.swift */,
 				D6E963FE27A852E200364406 /* SceneDelegate.swift */,
+				D6673A0C27A85C7B00CBE5F1 /* Networking */,
 				D6673A0D27A85C9800CBE5F1 /* Models */,
 				D6673A0E27A85CA100CBE5F1 /* Controllers */,
 				D6E9640227A852E200364406 /* Main.storyboard */,
