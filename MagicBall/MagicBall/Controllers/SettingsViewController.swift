@@ -9,22 +9,27 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-
+    @IBOutlet weak var addTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addButton(_ sender: Any) {
+        
+        HardCodedModel.sharedHardData.hardCodedAnswers.append(addTextField.text ?? "")
+        
+        showAlert()
+        addTextField.text = ""
+        
     }
-    */
-
+    
+    func showAlert(){
+        let dialogMessage = UIAlertController(title: "Great!", message: "Your answer has been added", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+        })
+        dialogMessage.addAction(ok)
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
 }

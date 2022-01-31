@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,6 +24,9 @@
                                 <rect key="frame" x="151" y="305" width="112" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                <connections>
+                                    <action selector="addButton:" destination="SId-Dg-Wbh" eventType="touchUpInside" id="fwv-Zw-eHI"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add custom answers to your Magic Ball" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2f3-TQ-AtZ">
                                 <rect key="frame" x="63" y="116.5" width="288" height="69.5"/>
@@ -49,6 +51,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="ZIG-RM-oLb"/>
+                    <connections>
+                        <outlet property="addTextField" destination="u8x-i7-0dh" id="7fS-Lk-sLm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmi-yd-5Un" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,7 +104,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="860-aA-dwI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bRs-wV-nV2" firstAttribute="leading" secondItem="860-aA-dwI" secondAttribute="leading" id="0lh-if-xKt"/>
                             <constraint firstItem="R0D-kR-qQQ" firstAttribute="top" secondItem="860-aA-dwI" secondAttribute="top" constant="590" id="3sR-EW-zum"/>
@@ -133,8 +138,5 @@
     </scenes>
     <resources>
         <image name="600px-Magic_eight_ball" width="600" height="600"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
