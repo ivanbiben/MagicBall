@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-
+    
     @IBOutlet weak var answerLabel: UILabel!
     
     
@@ -20,24 +20,13 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func shakeButton(_ sender: Any) {
-        
-        MagicBallNetworking.sharedMockData.fetchAnswers(complition: { res in
-            switch res{
-            case let .succ(data):
-                DispatchQueue.main.async {
-                    HardCodedModel.sharedHardData.hardCodedAnswers.append(data.magic?.answer ?? "")
-                }
-                
-            case let .error(error):
-                print(error)
-            }
-        })
-        
+        networkRequest()
         generateAnswer()
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         guard motion == .motionShake else { return }
+        networkRequest()
         generateAnswer()
     }
     
@@ -45,9 +34,21 @@ class MainViewController: UIViewController {
         HardCodedModel.sharedHardData.searchdDuplicate()
         let randomIndex = Int.random(in: 0..<HardCodedModel.sharedHardData.hardCodedAnswers.count)
         answerLabel.text = HardCodedModel.sharedHardData.hardCodedAnswers[randomIndex]
+        print("______________")
+        print(HardCodedModel.sharedHardData.hardCodedAnswers[randomIndex])
     }
     
-    
-    
+    func networkRequest(){
+        MagicBallNetworking.sharedMockData.fetchAnswers(complition: { res in
+            switch res{
+            case let .succ(data):
+                DispatchQueue.main.async {
+                    HardCodedModel.sharedHardData.hardCodedAnswers.append(data.magic?.answer ?? "")
+                }
+            case let .error(error):
+                print(error)
+            }
+        })
+    }
 }
 

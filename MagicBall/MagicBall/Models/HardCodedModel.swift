@@ -11,7 +11,7 @@ class HardCodedModel{
     
     static let sharedHardData = HardCodedModel()
     
-    var hardCodedAnswers = ["Yes, definitely"]
+    var hardCodedAnswers = ["Yes", "No"]
     
     
     func searchdDuplicate() {
