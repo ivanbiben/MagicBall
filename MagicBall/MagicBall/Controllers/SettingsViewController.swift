@@ -16,24 +16,31 @@ class SettingsViewController: UIViewController{
     
     var tableModels: [String] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        load()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        save()
         
     }
     
+    
     @IBAction func addButton(_ sender: Any) {
-        
-        HardCodedModel.sharedHardData.hardCodedAnswers.append(addTextField.text ?? "")
-        showAlert()
-        
         tableModels.append(addTextField.text ?? "")
+        showAlert()
+        HardCodedModel.sharedHardData.hardCodedAnswers.append(addTextField.text ?? "")
         DispatchQueue.main.async {
             self.table.reloadData()
         }
         addTextField.resignFirstResponder()
+        addTextField.text = ""
+        save()
     }
     
     func showAlert(){
@@ -44,6 +51,17 @@ class SettingsViewController: UIViewController{
         self.present(dialogMessage, animated: true, completion: nil)
     }
     
+    func save(){
+        UserDefaults.standard.set(tableModels, forKey: "userAnswers")
+        print(UserDefaults.standard.set(tableModels, forKey: "userAnswers"))
+    }
+    
+    func load(){
+        if let loadedData:[String] = UserDefaults.standard.value(forKey: "userAnswers") as? [String]{
+            tableModels = loadedData
+            table.reloadData()
+        }
+    }
 }
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource{
@@ -51,10 +69,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableModels.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,8 +80,18 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
     
-    
-    
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            tableView.beginUpdates()
+            tableModels.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
 }

@@ -12,7 +12,17 @@ class HardCodedModel{
     static let sharedHardData = HardCodedModel()
     
     var hardCodedAnswers = ["Yes", "No"]
+
+    func save(){
+        UserDefaults.standard.set(hardCodedAnswers, forKey: "hardAnswer")
+        
+    }
     
+    func load(){
+        if let loadedData:[String] = UserDefaults.standard.value(forKey: "userAnswers") as? [String]{
+            hardCodedAnswers = loadedData
+        }
+    }
     
     func searchdDuplicate() {
         
@@ -22,9 +32,8 @@ class HardCodedModel{
         answerSet.forEach { num in
             if let index = duplicateAnswers.firstIndex(of: num) {
                 duplicateAnswers.remove(at: index)
-          }
+            }
         }
         print(answerSet)
-        
     }
 }

@@ -12,30 +12,39 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var answerLabel: UILabel!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func shakeButton(_ sender: Any) {
-        networkRequest()
         generateAnswer()
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         guard motion == .motionShake else { return }
-        networkRequest()
         generateAnswer()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        HardCodedModel.sharedHardData.load()
+        print(HardCodedModel.sharedHardData.hardCodedAnswers)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        HardCodedModel.sharedHardData.save()
+    }
+    
     func generateAnswer() {
+        networkRequest()
         HardCodedModel.sharedHardData.searchdDuplicate()
-        let randomIndex = Int.random(in: 0..<HardCodedModel.sharedHardData.hardCodedAnswers.count)
-        answerLabel.text = HardCodedModel.sharedHardData.hardCodedAnswers[randomIndex]
-        print("______________")
-        print(HardCodedModel.sharedHardData.hardCodedAnswers[randomIndex])
+        if HardCodedModel.sharedHardData.hardCodedAnswers.count != 0{
+            let randomIndex = Int.random(in: 0..<HardCodedModel.sharedHardData.hardCodedAnswers.count)
+            answerLabel.text = HardCodedModel.sharedHardData.hardCodedAnswers[randomIndex]
+            print(HardCodedModel.sharedHardData.hardCodedAnswers[randomIndex])
+        } else {
+            answerLabel.text = "Yes"
+        }
     }
     
     func networkRequest(){
@@ -51,4 +60,5 @@ class MainViewController: UIViewController {
         })
     }
 }
+
 

@@ -11,7 +11,7 @@
         <!--Settings-->
         <scene sceneID="mDH-RX-vcr">
             <objects>
-                <viewController id="SId-Dg-Wbh" customClass="SettingsViewController" customModule="MagicBall" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SId-Dg-Wbh" customClass="SettingsViewController" customModule="MagicBall" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WT6-xR-c44">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmi-yd-5Un" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2624.6376811594205" y="534.375"/>
+            <point key="canvasLocation" x="2655" y="71"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gMS-uO-6y4">
